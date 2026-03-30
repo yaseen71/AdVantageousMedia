@@ -20,8 +20,8 @@ const DiscoveryCall: React.FC = () => {
   // Form State
   const [formData, setFormData] = useState({
     name: '',
-    email: '',
-    phone: '',
+    user_email: '',
+    user_phone: '',
     businessDetails: ''
   });
 
@@ -29,8 +29,8 @@ const DiscoveryCall: React.FC = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return (
       formData.name.trim().length > 1 && 
-      emailRegex.test(formData.email) && 
-      formData.phone.trim().length > 5
+      emailRegex.test(formData.user_email) && 
+      formData.user_phone.trim().length > 5
     );
   }, [formData]);
 
@@ -64,7 +64,7 @@ const DiscoveryCall: React.FC = () => {
       // Reset form after success message
       setTimeout(() => {
         setIsBooked(false);
-        setFormData({ name: '', email: '', phone: '', businessDetails: '' });
+        setFormData({ name: '', user_email: '', user_phone: '', businessDetails: '' });
       }, 6000);
     } catch (error) {
       console.error('Error submitting inquiry:', error);
@@ -107,7 +107,7 @@ const DiscoveryCall: React.FC = () => {
               <div className="text-6xl mb-6">🚀</div>
               <h3 className="text-3xl font-bold mb-4">Request Received, {formData.name.split(' ')[0]}!</h3>
               <p className="text-lg opacity-90 max-w-sm">
-                Our team will review your details and reach out to <strong>{formData.email}</strong> within 24 hours to schedule your sync.
+                Our team will review your details and reach out to <strong>{formData.user_email}</strong> within 24 hours to schedule your sync.
               </p>
               <button 
                 onClick={() => setIsBooked(false)}
@@ -123,7 +123,7 @@ const DiscoveryCall: React.FC = () => {
             <p className="text-slate-500 dark:text-gray-400 text-sm">Fill in the details below and our AI architects will get to work.</p>
           </div>
 
-          <div className="space-y-6">
+          <form noValidate onSubmit={(e) => e.preventDefault()} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
               <div>
                 <label htmlFor="name" className="block text-xs font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-2">Full Name</label>
@@ -138,13 +138,13 @@ const DiscoveryCall: React.FC = () => {
                 />
               </div>
               <div>
-                <label htmlFor="email" className="block text-xs font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
+                <label htmlFor="user_email" className="block text-xs font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
                 <input
                   type="text"
-                  id="email"
-                  name="email"
+                  id="user_email"
+                  name="user_email"
                   placeholder="name@company.com"
-                  value={formData.email}
+                  value={formData.user_email}
                   onChange={handleInputChange}
                   className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
                 />
@@ -152,14 +152,13 @@ const DiscoveryCall: React.FC = () => {
             </div>
             
             <div>
-              <label htmlFor="phone" className="block text-xs font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-2">Phone Number</label>
+              <label htmlFor="user_phone" className="block text-xs font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-2">Phone Number</label>
               <input
                 type="text"
-                inputMode="tel"
-                id="phone"
-                name="phone"
+                id="user_phone"
+                name="user_phone"
                 placeholder="+44 7000 000000"
-                value={formData.phone}
+                value={formData.user_phone}
                 onChange={handleInputChange}
                 className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
               />
@@ -201,7 +200,7 @@ const DiscoveryCall: React.FC = () => {
                 </p>
               )}
             </div>
-          </div>
+          </form>
 
           <div className="mt-10 pt-8 border-t border-black/5 dark:border-white/5">
             <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-gray-400">

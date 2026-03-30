@@ -15,9 +15,9 @@ async function startServer() {
   // API route for inquiries
   app.post("/api/inquiry", async (req, res) => {
     console.log("Received inquiry request:", req.body);
-    const { name, email, phone, businessDetails } = req.body;
+    const { name, user_email, user_phone, businessDetails } = req.body;
 
-    if (!name || !email || !phone) {
+    if (!name || !user_email || !user_phone) {
       console.warn("Missing required fields in inquiry request");
       return res.status(400).json({ error: "Missing required fields" });
     }
@@ -45,8 +45,8 @@ async function startServer() {
             New Inquiry Details:
             --------------------
             Name: ${name}
-            Email: ${email}
-            Phone: ${phone}
+            Email: ${user_email}
+            Phone: ${user_phone}
             
             Business & Goals:
             ${businessDetails || 'No details provided.'}
@@ -54,15 +54,15 @@ async function startServer() {
           html: `
             <h3>New Discovery Call Inquiry</h3>
             <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${email}</p>
-            <p><strong>Phone:</strong> ${phone}</p>
+            <p><strong>Email:</strong> ${user_email}</p>
+            <p><strong>Phone:</strong> ${user_phone}</p>
             <p><strong>Business & Goals:</strong></p>
             <p>${businessDetails ? businessDetails.replace(/\n/g, '<br>') : 'No details provided.'}</p>
           `
         };
 
         await transporter.sendMail(mailOptions);
-        console.log(`Email sent successfully to advantageousmedia1@gmail.com for inquiry from ${email}`);
+        console.log(`Email sent successfully to advantageousmedia1@gmail.com for inquiry from ${user_email}`);
       } else {
         console.warn("Email credentials not found or incomplete. Skipping email send. (Check EMAIL_USER and EMAIL_PASS in .env)");
       }
