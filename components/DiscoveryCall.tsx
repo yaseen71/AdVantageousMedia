@@ -140,7 +140,7 @@ const DiscoveryCall: React.FC = () => {
               <div>
                 <label htmlFor="email" className="block text-xs font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-2">Email Address</label>
                 <input
-                  type="email"
+                  type="text"
                   id="email"
                   name="email"
                   placeholder="name@company.com"
