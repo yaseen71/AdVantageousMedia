@@ -15,6 +15,7 @@ const DiscoveryCall: React.FC = () => {
   
   const [isBooked, setIsBooked] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
 
   // Form State
   const [formData, setFormData] = useState({
@@ -36,11 +37,13 @@ const DiscoveryCall: React.FC = () => {
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
     setFormData(prev => ({ ...prev, [name]: value }));
+    if (submitError) setSubmitError(null);
   };
 
   const handleConfirm = async () => {
     if (!isFormValid) return;
     setIsSubmitting(true);
+    setSubmitError(null);
     
     try {
       const response = await fetch('/api/inquiry', {
@@ -51,8 +54,10 @@ const DiscoveryCall: React.FC = () => {
         body: JSON.stringify(formData),
       });
 
+      const data = await response.json();
+
       if (!response.ok) {
-        throw new Error('Failed to submit inquiry');
+        throw new Error(data.error || 'Failed to submit inquiry');
       }
 
       setIsBooked(true);
@@ -63,7 +68,7 @@ const DiscoveryCall: React.FC = () => {
       }, 6000);
     } catch (error) {
       console.error('Error submitting inquiry:', error);
-      alert('There was an error submitting your request. Please try again later.');
+      setSubmitError(error instanceof Error ? error.message : 'There was an error submitting your request. Please try again later.');
     } finally {
       setIsSubmitting(false);
     }
@@ -93,19 +98,6 @@ const DiscoveryCall: React.FC = () => {
                 Submit your details and we'll use our <span className="text-blue-600 dark:text-blue-400 font-bold">Neural Engine</span> to generate a <span className="text-slate-900 dark:text-white font-semibold">custom concept ad</span> for your business. We will present this to you during our initial sync.
               </p>
             </div>
-          </div>
-          <div className="mt-10">
-            <button 
-              disabled={!isFormValid || isBooked || isSubmitting}
-              onClick={handleConfirm}
-              className={`w-full md:w-auto px-12 py-5 rounded-full text-lg font-bold text-white transition-all shadow-xl active:scale-95 focus:ring-4 focus:ring-pink-500/30 outline-none
-                ${isFormValid && !isSubmitting
-                  ? 'bg-[#db0072] hover:bg-[#b0005c] shadow-pink-500/20 cursor-pointer' 
-                  : 'bg-slate-300 dark:bg-slate-800 cursor-not-allowed opacity-50 shadow-none'}
-              `}
-            >
-              {isSubmitting ? 'Processing...' : isBooked ? 'Success!' : 'Secure Your AdVantage'}
-            </button>
           </div>
         </div>
 
@@ -186,6 +178,30 @@ const DiscoveryCall: React.FC = () => {
                 onChange={handleInputChange}
                 className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
               />
+            </div>
+
+            <div className="mt-8">
+              <button 
+                disabled={!isFormValid || isBooked || isSubmitting}
+                onClick={handleConfirm}
+                className={`w-full px-12 py-5 rounded-full text-lg font-bold text-white transition-all shadow-xl active:scale-95 focus:ring-4 focus:ring-pink-500/30 outline-none
+                  ${isFormValid && !isSubmitting
+                    ? 'bg-[#db0072] hover:bg-[#b0005c] shadow-pink-500/20 cursor-pointer' 
+                    : 'bg-slate-300 dark:bg-slate-800 cursor-not-allowed opacity-50 shadow-none'}
+                `}
+              >
+                {isSubmitting ? 'Processing...' : isBooked ? 'Success!' : 'Secure Your AdVantage'}
+              </button>
+              {submitError && (
+                <p className="mt-4 text-red-500 text-sm font-medium animate-pulse">
+                  ⚠️ {submitError}
+                </p>
+              )}
+              {!isFormValid && !isSubmitting && !isBooked && (
+                <p className="mt-4 text-slate-400 text-xs italic">
+                  Please complete all required fields to secure your call.
+                </p>
+              )}
             </div>
           </div>
 
