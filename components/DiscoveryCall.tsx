@@ -135,7 +135,6 @@ const DiscoveryCall: React.FC = () => {
                   value={formData.name}
                   onChange={handleInputChange}
                   className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
-                  required
                 />
               </div>
               <div>
@@ -148,7 +147,6 @@ const DiscoveryCall: React.FC = () => {
                   value={formData.email}
                   onChange={handleInputChange}
                   className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
-                  required
                 />
               </div>
             </div>
@@ -156,14 +154,14 @@ const DiscoveryCall: React.FC = () => {
             <div>
               <label htmlFor="phone" className="block text-xs font-bold text-slate-400 dark:text-gray-500 uppercase tracking-widest mb-2">Phone Number</label>
               <input
-                type="tel"
+                type="text"
+                inputMode="tel"
                 id="phone"
                 name="phone"
                 placeholder="+44 7000 000000"
                 value={formData.phone}
                 onChange={handleInputChange}
                 className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
-                required
               />
             </div>
 
