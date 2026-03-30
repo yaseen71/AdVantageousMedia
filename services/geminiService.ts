@@ -5,8 +5,18 @@ export class GeminiService {
   private ai: GoogleGenAI;
 
   constructor() {
-    // Correctly initialize with process.env.API_KEY directly as per SDK requirements
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    try {
+      // Correctly initialize with process.env.API_KEY directly as per SDK requirements
+      const apiKey = process.env.API_KEY;
+      if (!apiKey) {
+        console.warn("Gemini API Key is missing. AI features will be disabled.");
+      }
+      this.ai = new GoogleGenAI({ apiKey: apiKey || 'dummy-key' });
+    } catch (error) {
+      console.error("Failed to initialize Gemini AI:", error);
+      // Initialize with a dummy key to prevent top-level crash
+      this.ai = new GoogleGenAI({ apiKey: 'dummy-key' });
+    }
   }
 
   // Use gemini-3-pro-preview for complex reasoning and strategic planning tasks
