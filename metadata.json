@@ -1,0 +1,7 @@
+{
+  "name": "Copy of AdVantageousMedia - AI Marketing Agency",
+  "description": "A high-performance website for a leading AI-driven marketing agency featuring real-time AI consultations and modern UI/UX.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
