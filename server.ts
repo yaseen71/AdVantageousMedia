@@ -13,7 +13,7 @@ async function startServer() {
   app.use(express.json());
 
   // API route for inquiries
-  app.post("/api/inquiry", async (req, res) => {
+  app.post(["/api/inquiry", "/api/inquiry/"], async (req, res) => {
     console.log("Received inquiry request:", req.body);
     const { name, user_email, user_phone, businessDetails } = req.body;
 
@@ -88,6 +88,12 @@ async function startServer() {
       res.sendFile(path.join(distPath, 'index.html'));
     });
   }
+
+  // Error handler
+  app.use((err: any, req: express.Request, res: express.Response, next: express.NextFunction) => {
+    console.error("Unhandled server error:", err);
+    res.status(err.status || 500).json({ error: err.message || "Internal server error" });
+  });
 
   app.listen(PORT, "0.0.0.0", () => {
     console.log(`Server running on http://localhost:${PORT}`);

@@ -63,7 +63,7 @@ const DiscoveryCall: React.FC = () => {
         const text = await response.text();
         console.warn('Response is not JSON:', text.substring(0, 100));
         if (!response.ok) {
-          throw new Error('Server returned an error without JSON details');
+          throw new Error(`Server error (${response.status}): ${text.substring(0, 100)}`);
         }
       }
 
