@@ -12,7 +12,26 @@ async function startServer() {
 
   app.use(express.json());
 
+  // Request logger
+  app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+  });
+
+  // Test endpoint
+  app.get("/api/test", (req, res) => {
+    res.json({ status: "ok", message: "API is reachable" });
+  });
+
+  app.get("/api/ping", (req, res) => {
+    res.send("pong");
+  });
+
   // API route for inquiries
+  app.get("/api/inquiry", (req, res) => {
+    res.json({ status: "ok", message: "Inquiry endpoint is active. Use POST to submit." });
+  });
+
   app.post(["/api/inquiry", "/api/inquiry/"], async (req, res) => {
     console.log("Received inquiry request:", req.body);
     const { name, user_email, user_phone, businessDetails } = req.body;
