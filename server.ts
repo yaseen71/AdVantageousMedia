@@ -23,74 +23,80 @@ async function startServer() {
     res.json({ status: "ok", message: "API is reachable" });
   });
 
-  app.get("/api/ping", (req, res) => {
-    res.send("pong");
+  app.all("/api/ping", (req, res) => {
+    res.send(`pong - ${req.method}`);
   });
 
   // API route for inquiries
-  app.get("/api/inquiry", (req, res) => {
-    res.json({ status: "ok", message: "Inquiry endpoint is active. Use POST to submit." });
-  });
+  app.route("/api/v1/inquiry")
+    .get((req, res) => {
+      res.json({ status: "ok", message: "Inquiry endpoint is active. Use POST to submit." });
+    })
+    .post(async (req, res) => {
+      console.log(`[${new Date().toISOString()}] POST /api/v1/inquiry received`);
+      console.log("Body:", req.body);
+      const { name, user_email, user_phone, businessDetails } = req.body;
 
-  app.post(["/api/inquiry", "/api/inquiry/"], async (req, res) => {
-    console.log("Received inquiry request:", req.body);
-    const { name, user_email, user_phone, businessDetails } = req.body;
-
-    if (!name || !user_email || !user_phone) {
-      console.warn("Missing required fields in inquiry request");
-      return res.status(400).json({ error: "Missing required fields" });
-    }
-
-    try {
-      const emailUser = process.env.EMAIL_USER;
-      const emailPass = process.env.EMAIL_PASS;
-
-      // Only attempt to send if credentials are provided and not empty
-      if (emailUser && emailPass && emailUser.trim() !== "" && emailPass.trim() !== "") {
-        console.log("Attempting to send email via Nodemailer...");
-        const transporter = nodemailer.createTransport({
-          service: 'gmail',
-          auth: {
-            user: emailUser,
-            pass: emailPass
-          }
-        });
-
-        const mailOptions = {
-          from: emailUser,
-          to: 'advantageousmedia1@gmail.com',
-          subject: `New Discovery Call Inquiry from ${name}`,
-          text: `
-            New Inquiry Details:
-            --------------------
-            Name: ${name}
-            Email: ${user_email}
-            Phone: ${user_phone}
-            
-            Business & Goals:
-            ${businessDetails || 'No details provided.'}
-          `,
-          html: `
-            <h3>New Discovery Call Inquiry</h3>
-            <p><strong>Name:</strong> ${name}</p>
-            <p><strong>Email:</strong> ${user_email}</p>
-            <p><strong>Phone:</strong> ${user_phone}</p>
-            <p><strong>Business & Goals:</strong></p>
-            <p>${businessDetails ? businessDetails.replace(/\n/g, '<br>') : 'No details provided.'}</p>
-          `
-        };
-
-        await transporter.sendMail(mailOptions);
-        console.log(`Email sent successfully to advantageousmedia1@gmail.com for inquiry from ${user_email}`);
-      } else {
-        console.warn("Email credentials not found or incomplete. Skipping email send. (Check EMAIL_USER and EMAIL_PASS in .env)");
+      if (!name || !user_email || !user_phone) {
+        console.warn("Missing required fields in inquiry request");
+        return res.status(400).json({ error: "Missing required fields" });
       }
 
-      res.json({ success: true });
-    } catch (error) {
-      console.error("Error processing inquiry/sending email:", error);
-      res.status(500).json({ error: "Failed to process inquiry. Please check server logs." });
-    }
+      try {
+        const emailUser = process.env.EMAIL_USER;
+        const emailPass = process.env.EMAIL_PASS;
+
+        // Only attempt to send if credentials are provided and not empty
+        if (emailUser && emailPass && emailUser.trim() !== "" && emailPass.trim() !== "") {
+          console.log("Attempting to send email via Nodemailer...");
+          const transporter = nodemailer.createTransport({
+            service: 'gmail',
+            auth: {
+              user: emailUser,
+              pass: emailPass
+            }
+          });
+
+          const mailOptions = {
+            from: emailUser,
+            to: 'advantageousmedia1@gmail.com',
+            subject: `New Discovery Call Inquiry from ${name}`,
+            text: `
+              New Inquiry Details:
+              --------------------
+              Name: ${name}
+              Email: ${user_email}
+              Phone: ${user_phone}
+              
+              Business & Goals:
+              ${businessDetails || 'No details provided.'}
+            `,
+            html: `
+              <h3>New Discovery Call Inquiry</h3>
+              <p><strong>Name:</strong> ${name}</p>
+              <p><strong>Email:</strong> ${user_email}</p>
+              <p><strong>Phone:</strong> ${user_phone}</p>
+              <p><strong>Business & Goals:</strong></p>
+              <p>${businessDetails ? businessDetails.replace(/\n/g, '<br>') : 'No details provided.'}</p>
+            `
+          };
+
+          await transporter.sendMail(mailOptions);
+          console.log(`Email sent successfully to advantageousmedia1@gmail.com for inquiry from ${user_email}`);
+        } else {
+          console.warn("Email credentials not found or incomplete. Skipping email send. (Check EMAIL_USER and EMAIL_PASS in .env)");
+        }
+
+        res.json({ success: true });
+      } catch (error) {
+        console.error("Error processing inquiry/sending email:", error);
+        res.status(500).json({ error: "Failed to process inquiry. Please check server logs." });
+      }
+    });
+
+  // Also handle trailing slash for POST
+  app.post("/api/v1/inquiry/", (req, res) => {
+    res.redirect(307, "/api/v1/inquiry");
   });
 
   // Vite middleware for development

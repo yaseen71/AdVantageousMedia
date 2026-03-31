@@ -46,7 +46,10 @@ const DiscoveryCall: React.FC = () => {
     setSubmitError(null);
     
     try {
-      const response = await fetch('/api/inquiry', {
+      const apiUrl = `${window.location.origin}/api/v1/inquiry`;
+      console.log(`Submitting form to: ${apiUrl}`);
+      
+      const response = await fetch(apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
