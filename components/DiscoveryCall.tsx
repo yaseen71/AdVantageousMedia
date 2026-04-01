@@ -46,7 +46,7 @@ const DiscoveryCall: React.FC = () => {
     setSubmitError(null);
     
     try {
-      const apiUrl = `${window.location.origin}/api/v1/inquiry`;
+      const apiUrl = '/api/v1/inquiry';
       console.log(`Submitting form to: ${apiUrl}`);
       
       const response = await fetch(apiUrl, {
