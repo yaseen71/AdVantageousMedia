@@ -9,6 +9,11 @@ const __dirname = path.dirname(__filename);
 
 export default defineConfig(({ mode }) => {
     const env = loadEnv(mode, '.', '');
+    
+    // Ensure we pick up system environment variables even if not in .env files
+    const GEMINI_API_KEY = env.GEMINI_API_KEY || process.env.GEMINI_API_KEY || '';
+    const API_KEY = env.API_KEY || process.env.API_KEY || '';
+
     return {
       server: {
         port: 3000,
@@ -16,8 +21,8 @@ export default defineConfig(({ mode }) => {
       },
       plugins: [react(), tailwindcss()],
       define: {
-        'process.env.API_KEY': JSON.stringify(env.GEMINI_API_KEY),
-        'process.env.GEMINI_API_KEY': JSON.stringify(env.GEMINI_API_KEY)
+        'process.env.API_KEY': JSON.stringify(API_KEY || GEMINI_API_KEY),
+        'process.env.GEMINI_API_KEY': JSON.stringify(GEMINI_API_KEY || API_KEY)
       },
       resolve: {
         alias: {
