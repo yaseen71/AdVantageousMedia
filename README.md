@@ -4,7 +4,7 @@ A high-performance website for a leading AI-driven marketing agency featuring re
 
 ## Features
 
-- **AI Strategy Simulator**: Describe your business and get a custom growth roadmap powered by Google Gemini.
+- **AI Chat Assistant**: Real-time consultations powered by Google Gemini.
 - **Discovery Call Inquiry**: Streamlined inquiry form for booking consultations.
 - **Email Notifications**: Automatically sends inquiry details to the agency's email.
 - **Modern UI/UX**: Responsive design with dark mode support, built with React and Tailwind CSS.

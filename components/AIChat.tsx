@@ -10,7 +10,22 @@ const AIChat: React.FC = () => {
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const [hasApiKey, setHasApiKey] = useState(true);
   const messagesEndRef = useRef<HTMLDivElement>(null);
+
+  React.useEffect(() => {
+    const checkKey = async () => {
+      const exists = await geminiService.hasKey();
+      setHasApiKey(exists);
+    };
+    checkKey();
+  }, []);
+
+  const handleConnectAI = async () => {
+    await geminiService.openKeySelector();
+    const exists = await geminiService.hasKey();
+    setHasApiKey(exists);
+  };
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -78,6 +93,19 @@ const AIChat: React.FC = () => {
         </div>
 
         <div className="flex-1 overflow-y-auto p-6 space-y-4 custom-scrollbar">
+          {!hasApiKey && (
+            <div className="p-4 bg-amber-500/10 border border-amber-500/20 rounded-2xl mb-4 animate-fade-in">
+              <p className="text-xs text-amber-600 dark:text-amber-400 mb-3 font-medium">
+                AI is currently disconnected. Connect your API key to start chatting.
+              </p>
+              <button
+                onClick={handleConnectAI}
+                className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white text-xs font-bold rounded-xl transition-all active:scale-95 shadow-lg shadow-amber-500/20"
+              >
+                Connect AI Assistant
+              </button>
+            </div>
+          )}
           {messages.map((msg, i) => (
             <div key={i} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'} animate-fade-in`}>
               <div className={`max-w-[85%] px-5 py-3 rounded-2xl text-sm leading-relaxed shadow-sm ${

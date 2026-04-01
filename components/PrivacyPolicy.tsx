@@ -77,7 +77,7 @@ const PrivacyPolicy: React.FC<PrivacyPolicyProps> = ({ isOpen, onClose }) => {
               <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-4">3. AI Processing & Neural Engine Usage</h3>
               <div className="p-6 bg-blue-600/5 border border-blue-500/10 rounded-2xl italic">
                 <p className="leading-relaxed">
-                  As an AI-first agency, we utilize advanced Large Language Models (LLMs) and Neural Networks to process business data for the purpose of generating marketing strategies and creative assets. Your inputs into our "Strategy Simulator" are processed by Google Gemini models to provide real-time value.
+                  As an AI-first agency, we utilize advanced Large Language Models (LLMs) and Neural Networks to process business data for the purpose of generating marketing strategies and creative assets. Your inputs are processed by Google Gemini models to provide real-time value.
                 </p>
               </div>
             </section>

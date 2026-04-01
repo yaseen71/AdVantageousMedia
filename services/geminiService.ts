@@ -21,8 +21,33 @@ export class GeminiService {
     }
   }
 
-  private getApiKey(): string | undefined {
-    return process.env.GEMINI_API_KEY || process.env.API_KEY;
+  public getApiKey(): string | undefined {
+    const key = process.env.GEMINI_API_KEY || 
+                process.env.API_KEY || 
+                (import.meta as any).env?.VITE_GEMINI_API_KEY || 
+                (import.meta as any).env?.VITE_API_KEY;
+    return key && key !== 'dummy-key' ? key : undefined;
+  }
+
+  public async hasKey(): Promise<boolean> {
+    const key = this.getApiKey();
+    if (key) return true;
+
+    // Check platform selection
+    if (typeof window !== 'undefined' && (window as any).aistudio?.hasSelectedApiKey) {
+      return await (window as any).aistudio.hasSelectedApiKey();
+    }
+    return false;
+  }
+
+  public async openKeySelector(): Promise<void> {
+    if (typeof window !== 'undefined' && (window as any).aistudio?.openSelectKey) {
+      await (window as any).aistudio.openSelectKey();
+      // After opening, we assume the user might have selected a key.
+      // The platform will inject it into process.env.API_KEY on next reload or dynamically.
+    } else {
+      alert("Please configure your GEMINI_API_KEY in the environment settings.");
+    }
   }
 
   // Use gemini-3.1-pro-preview for complex reasoning and strategic planning tasks
@@ -30,11 +55,20 @@ export class GeminiService {
     try {
       const apiKey = this.getApiKey();
       if (!apiKey) {
-        return "AI features are currently unavailable. Please ensure the Gemini API Key is configured in the environment.";
+        // Try to re-check if it was just selected
+        if (await this.hasKey()) {
+           // If hasKey is true but getApiKey is false, it might be in process.env.API_KEY now
+           // or we might need to wait. For now, we'll try to proceed if possible.
+        } else {
+          return "AI features are currently unavailable. Please ensure the Gemini API Key is configured in the environment.";
+        }
       }
 
+      const activeKey = apiKey || process.env.API_KEY || process.env.GEMINI_API_KEY;
+      if (!activeKey) return "AI features are currently unavailable. Please connect your API key.";
+
       // Re-initialize to ensure latest key is used (handles dynamic key selection)
-      const ai = new GoogleGenAI({ apiKey });
+      const ai = new GoogleGenAI({ apiKey: activeKey });
       const response = await ai.models.generateContent({
         model: 'gemini-3.1-pro-preview',
         contents: `A client has shared the following goals/business info: "${prompt}". Provide a brief, high-impact 3-point AI marketing strategy for them.`,
