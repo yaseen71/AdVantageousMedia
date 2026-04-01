@@ -71,7 +71,9 @@ const DiscoveryCall: React.FC = () => {
       }
 
       if (!response.ok) {
-        throw new Error(data.error || 'Failed to submit inquiry');
+        const errorMsg = data.error || 'Failed to submit inquiry';
+        const details = data.details ? ` (${data.details})` : '';
+        throw new Error(`${errorMsg}${details}`);
       }
 
       setIsBooked(true);

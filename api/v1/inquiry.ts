@@ -72,6 +72,10 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     let errorMessage = "Failed to process inquiry.";
     if (error.code === 'EAUTH') {
       errorMessage = "Email authentication failed. Check Vercel environment variables (EMAIL_USER/EMAIL_PASS).";
+    } else if (error.code === 'ECONNREFUSED' || error.code === 'ETIMEDOUT') {
+      errorMessage = "Connection to email server timed out. Check your network or Gmail settings.";
+    } else if (error.code === 'ESOCKET') {
+      errorMessage = "Network socket error. Gmail might be blocking the connection.";
     }
     
     return res.status(500).json({ 

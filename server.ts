@@ -95,8 +95,10 @@ async function startServer() {
         let errorMessage = "Failed to process inquiry. Please check server logs.";
         if (error.code === 'EAUTH') {
           errorMessage = "Email authentication failed. Please check your EMAIL_USER and EMAIL_PASS (use an App Password for Gmail).";
+        } else if (error.code === 'ECONNREFUSED' || error.code === 'ETIMEDOUT') {
+          errorMessage = "Connection to email server timed out. Check your network or Gmail settings.";
         } else if (error.code === 'ESOCKET') {
-          errorMessage = "Network error while sending email. Please try again later.";
+          errorMessage = "Network socket error. Gmail might be blocking the connection.";
         }
         
         res.status(500).json({ 
