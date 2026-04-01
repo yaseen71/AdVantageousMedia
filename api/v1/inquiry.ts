@@ -65,8 +65,18 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     return res.status(200).json({ success: true });
-  } catch (error) {
+  } catch (error: any) {
     console.error("Error processing inquiry on Vercel:", error);
-    return res.status(500).json({ error: "Failed to process inquiry." });
+    
+    // Provide more helpful error message for common Nodemailer issues
+    let errorMessage = "Failed to process inquiry.";
+    if (error.code === 'EAUTH') {
+      errorMessage = "Email authentication failed. Check Vercel environment variables (EMAIL_USER/EMAIL_PASS).";
+    }
+    
+    return res.status(500).json({ 
+      error: errorMessage,
+      details: error.message 
+    });
   }
 }

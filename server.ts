@@ -88,9 +88,21 @@ async function startServer() {
         }
 
         res.json({ success: true });
-      } catch (error) {
+      } catch (error: any) {
         console.error("Error processing inquiry/sending email:", error);
-        res.status(500).json({ error: "Failed to process inquiry. Please check server logs." });
+        
+        // Provide more helpful error message for common Nodemailer issues
+        let errorMessage = "Failed to process inquiry. Please check server logs.";
+        if (error.code === 'EAUTH') {
+          errorMessage = "Email authentication failed. Please check your EMAIL_USER and EMAIL_PASS (use an App Password for Gmail).";
+        } else if (error.code === 'ESOCKET') {
+          errorMessage = "Network error while sending email. Please try again later.";
+        }
+        
+        res.status(500).json({ 
+          error: errorMessage,
+          details: process.env.NODE_ENV !== 'production' ? error.message : undefined
+        });
       }
     });
 
