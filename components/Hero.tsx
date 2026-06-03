@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { geminiService } from '../services/geminiService';
+import ParallaxHeroBackground from './ParallaxHeroBackground';
 
 interface HeroProps {
   onLaunchClick: () => void;
@@ -9,27 +10,24 @@ interface HeroProps {
 const Hero: React.FC<HeroProps> = ({ onLaunchClick, onProofClick }) => {
   return (
     <section className="relative pt-40 pb-24 px-6 overflow-hidden min-h-screen flex flex-col justify-center transition-colors duration-300">
-      <div className="absolute top-0 -left-10 w-96 h-96 bg-blue-600 rounded-full mix-blend-multiply filter blur-[80px] opacity-10 dark:opacity-20 animate-blob"></div>
-      <div className="absolute top-20 -right-10 w-80 h-80 bg-purple-600 rounded-full mix-blend-multiply filter blur-[80px] opacity-10 dark:opacity-20 animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-20 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-pink-600 rounded-full mix-blend-multiply filter blur-[120px] opacity-10 dark:opacity-15 animate-blob animation-delay-4000"></div>
+      <ParallaxHeroBackground />
 
       <div className="max-w-7xl mx-auto relative z-10 text-center flex flex-col items-center">
         <div className="flex flex-col items-center">
-          <div className="mb-6 px-4 py-1.5 glass rounded-full flex items-center gap-2 border border-blue-500/20 opacity-0 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-[#48fffa] animate-pulse"></span>
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-blue-600 dark:text-[#48fffa]">
-              Next-Gen AI Marketing Agency
+          <div className="mb-6 px-4 py-1.5 glass rounded-full flex items-center gap-2 border border-emerald-500/10 opacity-0 animate-fade-in bg-white/20 dark:bg-black/20">
+            <span className="w-2 h-2 rounded-full bg-[#A1CCA5] animate-pulse"></span>
+            <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-emerald-700 dark:text-[#A1CCA5]">
+              Next-Gen Custom Website Creation
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-extrabold leading-[1.2] tracking-tighter mb-8 text-slate-900 dark:text-white opacity-0 animate-fade-in animation-delay-100">
+          <h1 className="text-6xl md:text-8xl font-extrabold leading-[1.15] tracking-tighter mb-8 text-slate-900 dark:text-white opacity-0 animate-fade-in animation-delay-100 font-serif">
             Secure Your <br />
-            <span className="text-gradient text-glow-blue inline-block px-4 pb-2">AdVantage.</span>
+            <span className="text-gradient text-glow-blue inline-block px-4 pb-2 italic">AdVantage.</span>
           </h1>
           
           <p className="text-xl md:text-2xl text-slate-600 dark:text-gray-400 mb-10 max-w-2xl leading-relaxed opacity-0 animate-fade-in animation-delay-200 mx-auto">
-            Harness the predictive power of Artificial Intelligence to dominate your niche. 
-            We build algorithms that don't just reach audiences—they convert them.
+            We design and build ultra-fast, high-converting websites and custom web systems using modern frameworks that amplify your brand and scale your business effortlessly.
           </p>
           
           <div className="flex flex-wrap justify-center gap-5 opacity-0 animate-fade-in animation-delay-300">
@@ -37,7 +35,7 @@ const Hero: React.FC<HeroProps> = ({ onLaunchClick, onProofClick }) => {
               onClick={onLaunchClick}
               className="group relative px-10 py-5 bg-slate-900 dark:bg-white text-white dark:text-black font-bold rounded-2xl hover:scale-105 transition-all shadow-2xl overflow-hidden focus:ring-4 focus:ring-blue-500/50 outline-none active:scale-95"
             >
-              <span className="relative z-10">Launch Your Campaign</span>
+              <span className="relative z-10">Start Your Project</span>
               <div className="absolute inset-0 bg-gradient-main opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </button>
             <button 

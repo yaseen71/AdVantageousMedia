@@ -6,7 +6,7 @@ import { ChatMessage } from '../types';
 const AIChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'assistant', content: 'Hi! I\'m the AdVantageous AI. How can I help you scale your brand today?' }
+    { role: 'assistant', content: "Hi! I'm the AdVantageous Web Builder AI. Ask me about custom website structures, page speed optimization, or booking your web design project!" }
   ]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -84,7 +84,7 @@ const AIChat: React.FC = () => {
         <div className="p-6 bg-gradient-main text-white flex items-center gap-4">
           <div className="w-10 h-10 rounded-full bg-white/20 flex items-center justify-center text-xl backdrop-blur-md">🤖</div>
           <div>
-            <h3 className="font-bold text-sm tracking-tight">AdVantageous Strategy AI</h3>
+            <h3 className="font-bold text-sm tracking-tight">AdVantageous Media AI</h3>
             <div className="flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-[#48fffa] animate-pulse"></span>
               <span className="text-[10px] font-bold uppercase tracking-widest opacity-80">Neural Model Online</span>
@@ -135,7 +135,7 @@ const AIChat: React.FC = () => {
           <div className="relative">
             <input
               type="text"
-              placeholder="Ask anything about AI marketing..."
+              placeholder="Ask anything about website creation, SEO, or UI design..."
               value={input}
               onChange={(e) => setInput(e.target.value)}
               className="w-full bg-white dark:bg-black/50 border border-black/10 dark:border-white/10 rounded-full px-6 py-4 text-sm focus:outline-none focus:border-blue-500 transition-all pr-12 dark:text-white"

@@ -15,7 +15,7 @@ const BusinessInsights: React.FC = () => {
             </div>
             <h2 className="text-4xl md:text-5xl font-bold mb-4 text-slate-900 dark:text-white">Business <span className="text-gradient">Insights.</span></h2>
             <p className="text-slate-600 dark:text-gray-400 max-w-xl text-lg">
-              We don't just guess; we compute. Explore the core metrics and strategic principles that drive the AdVantageous edge.
+              We don't just guess; we benchmark. Explore the performance scores, design standards, and load speed techniques that drive the AdVantageous edge.
             </p>
           </div>
           <div className="flex items-center gap-3 glass px-6 py-3 rounded-2xl border-blue-500/10">
@@ -26,7 +26,7 @@ const BusinessInsights: React.FC = () => {
                 </div>
               ))}
             </div>
-            <span className="text-xs font-bold text-slate-500 dark:text-gray-400">Live Analyst Monitoring</span>
+            <span className="text-xs font-bold text-slate-500 dark:text-gray-400">Real-time Performance Audits</span>
           </div>
         </div>
 
@@ -63,9 +63,9 @@ const BusinessInsights: React.FC = () => {
              ⚡
            </div>
            <div>
-             <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">The Data Philosophy</h4>
+             <h4 className="text-xl font-bold text-slate-900 dark:text-white mb-2">The Performance Philosophy</h4>
              <p className="text-slate-600 dark:text-gray-400 text-sm leading-relaxed max-w-3xl">
-               Every impression is a data point. Every click is a behavioral signal. Our systems aggregate millions of cross-platform interactions daily to refine our global marketing model, ensuring that AdVantageousMedia clients are always three steps ahead of market volatility.
+               Every digital touchpoint is a brand statement. Every millisecond of load time represents user retention or loss. Our serverless architecture is statically optimized to deliver rendering times under 300 milliseconds globally, keeping your digital footprint miles ahead of competitors.
              </p>
            </div>
            <button className="whitespace-nowrap px-8 py-4 bg-slate-900 dark:bg-white text-white dark:text-black font-bold rounded-2xl hover:scale-105 transition-all shadow-xl ml-auto active:scale-95">

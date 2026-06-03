@@ -91,27 +91,27 @@ const DiscoveryCall: React.FC = () => {
   };
 
   return (
-    <section id="contact-booking" className="py-24 bg-slate-100 dark:bg-[#0a0a0a] transition-colors duration-300">
+    <section id="contact-booking" className="py-24 bg-[#FAF8F5] dark:bg-[#080E0C] border-t border-black/5 dark:border-white/5 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-start">
         <div className="lg:sticky lg:top-32">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white tracking-tight leading-tight">
-            Request Your Free <br/><span className="text-gradient">Discovery Call</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-8 text-slate-900 dark:text-white tracking-tight leading-tight font-serif">
+            Request Your Free <br/><span className="text-gradient font-serif italic inline-block pr-2">Discovery Call</span>
           </h2>
-          <div className="space-y-8 text-slate-600 dark:text-gray-400 text-lg">
+          <div className="space-y-8 text-slate-600 dark:text-gray-300 text-lg">
             <p className="leading-relaxed">
-              At AdVantageousMedia, we don’t follow a one-size-fits-all formula. We’re your dedicated growth partner—strategic, collaborative, and focused on results that matter.
+              At AdVantageousMedia, we don’t follow standard template formulas. We’re your dedicated digital engineering partner—strategic, collaborative, and focused on building custom web ecosystems that scale organically.
             </p>
             
             {/* AdVantage Meeting Bonus Card - Optimized for Both Modes */}
-            <div className="p-8 bg-white dark:bg-white/5 border border-blue-500/10 dark:border-white/10 rounded-[2.5rem] shadow-xl shadow-blue-500/5 transition-all group">
+            <div className="p-8 bg-white dark:bg-emerald-950/20 border border-emerald-500/10 dark:border-[#7EA18F]/20 rounded-[2.5rem] shadow-xl shadow-emerald-500/5 transition-all group">
               <div className="flex items-center gap-4 mb-4">
-                <div className="w-12 h-12 rounded-2xl bg-blue-500/10 dark:bg-white/10 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
-                  🪄
+                <div className="w-12 h-12 rounded-2xl bg-emerald-500/10 dark:bg-emerald-500/20 flex items-center justify-center text-2xl group-hover:scale-110 transition-transform">
+                  🌿
                 </div>
-                <h4 className="font-bold text-slate-900 dark:text-white text-xl">The AdVantage Bonus</h4>
+                <h4 className="font-bold text-slate-900 dark:text-white text-xl font-serif">The Organic Advantage</h4>
               </div>
-              <p className="text-base leading-relaxed text-slate-600 dark:text-gray-400">
-                Submit your details and we'll use our <span className="text-blue-600 dark:text-blue-400 font-bold">Neural Engine</span> to generate a <span className="text-slate-900 dark:text-white font-semibold">custom concept ad</span> for your business. We will present this to you during our initial sync.
+              <p className="text-base leading-relaxed text-slate-600 dark:text-gray-300">
+                Submit your details and we'll use our <span className="text-[#1B4231] dark:text-[#A1CCA5] font-bold">Natural Code Engine</span> to generate a <span className="text-slate-900 dark:text-white font-semibold">custom concept layout blueprint</span> for your business. We will present this during our initial conference.
               </p>
             </div>
           </div>
@@ -119,25 +119,25 @@ const DiscoveryCall: React.FC = () => {
 
         <div className="glass p-8 md:p-12 rounded-[2rem] border border-black/5 dark:border-white/10 shadow-2xl overflow-hidden relative">
           {isBooked && (
-            <div className="absolute inset-0 z-20 bg-blue-600/95 dark:bg-blue-600/90 flex flex-col items-center justify-center text-white text-center p-10 animate-fade-in">
-              <div className="text-6xl mb-6">🚀</div>
-              <h3 className="text-3xl font-bold mb-4">Request Received, {formData.name.split(' ')[0]}!</h3>
+            <div className="absolute inset-0 z-20 bg-gradient-main flex flex-col items-center justify-center text-white text-center p-10 animate-fade-in">
+              <div className="text-6xl mb-6">🌿</div>
+              <h3 className="text-3xl font-bold mb-4 font-serif">Request Received, {formData.name.split(' ')[0]}!</h3>
               <p className="text-lg opacity-90 max-w-sm">
                 Our team will review your details and reach out to <strong>{formData.user_email}</strong> within 24 hours to schedule your sync.
               </p>
               <button 
                 onClick={() => setIsBooked(false)}
-                className="mt-8 px-8 py-3 bg-white text-blue-600 font-bold rounded-full hover:scale-105 transition-all"
+                className="mt-8 px-8 py-3 bg-[#FAF8F5] text-[#1B4231] font-bold rounded-full hover:scale-105 transition-all shadow-lg"
               >
                 Done
               </button>
             </div>
           )}
 
-          <div className="mb-10">
-            <h3 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white">Tell Us About Your Project</h3>
-            <p className="text-slate-500 dark:text-gray-400 text-sm">Fill in the details below and our AI architects will get to work.</p>
-          </div>
+            <div className="mb-10">
+              <h3 className="text-2xl font-bold mb-2 text-slate-900 dark:text-white font-serif">Tell Us About Your Project</h3>
+              <p className="text-slate-500 dark:text-gray-400 text-sm">Fill in the details below and our software architects will get to work.</p>
+            </div>
 
           <form noValidate onSubmit={(e) => e.preventDefault()} className="space-y-6">
             <div className="grid md:grid-cols-2 gap-6">
@@ -150,7 +150,7 @@ const DiscoveryCall: React.FC = () => {
                   placeholder="Name"
                   value={formData.name}
                   onChange={handleInputChange}
-                  className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-[#7EA18F] focus:ring-2 focus:ring-[#7EA18F]/20 transition-all"
                 />
               </div>
               <div>
@@ -162,7 +162,7 @@ const DiscoveryCall: React.FC = () => {
                   placeholder="name@company.com"
                   value={formData.user_email}
                   onChange={handleInputChange}
-                  className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                  className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-[#7EA18F] focus:ring-2 focus:ring-[#7EA18F]/20 transition-all"
                 />
               </div>
             </div>
@@ -176,7 +176,7 @@ const DiscoveryCall: React.FC = () => {
                 placeholder="+44 7000 000000"
                 value={formData.user_phone}
                 onChange={handleInputChange}
-                className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all"
+                className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-[#7EA18F] focus:ring-2 focus:ring-[#7EA18F]/20 transition-all"
               />
             </div>
 
@@ -186,10 +186,10 @@ const DiscoveryCall: React.FC = () => {
                 id="businessDetails"
                 name="businessDetails"
                 rows={4}
-                placeholder="Tell us about your brand and what you're looking to achieve with AI marketing..."
+                placeholder="Tell us about your brand and what you're looking to achieve with your new website or custom web ecosystem..."
                 value={formData.businessDetails}
                 onChange={handleInputChange}
-                className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none"
+                className="w-full bg-slate-50 dark:bg-black/40 border border-black/10 dark:border-white/10 rounded-xl px-5 py-4 text-sm text-slate-900 dark:text-white focus:outline-none focus:border-[#7EA18F] focus:ring-2 focus:ring-[#7EA18F]/20 transition-all resize-none"
               />
             </div>
 
@@ -197,13 +197,13 @@ const DiscoveryCall: React.FC = () => {
               <button 
                 disabled={!isFormValid || isBooked || isSubmitting}
                 onClick={handleConfirm}
-                className={`w-full px-12 py-5 rounded-full text-lg font-bold text-white transition-all shadow-xl active:scale-95 focus:ring-4 focus:ring-pink-500/30 outline-none
+                className={`w-full px-12 py-5 rounded-full text-lg font-bold transition-all shadow-xl active:scale-95 outline-none
                   ${isFormValid && !isSubmitting
-                    ? 'bg-[#db0072] hover:bg-[#b0005c] shadow-pink-500/20 cursor-pointer' 
-                    : 'bg-slate-300 dark:bg-slate-800 cursor-not-allowed opacity-50 shadow-none'}
+                    ? 'bg-[#1B4231] dark:bg-[#A1CCA5] text-[#FAF8F5] dark:text-[#0C1410] hover:scale-[1.02] hover:opacity-90 shadow-emerald-950/20 cursor-pointer' 
+                    : 'bg-slate-200 dark:bg-slate-800 text-slate-400 dark:text-gray-500 cursor-not-allowed opacity-50 shadow-none'}
                 `}
               >
-                {isSubmitting ? 'Processing...' : isBooked ? 'Success!' : 'Secure Your AdVantage'}
+                {isSubmitting ? 'Processing...' : isBooked ? 'Success!' : 'Build Your Dream Website'}
               </button>
               {submitError && (
                 <p className="mt-4 text-red-500 text-sm font-medium animate-pulse">
@@ -221,7 +221,7 @@ const DiscoveryCall: React.FC = () => {
           <div className="mt-10 pt-8 border-t border-black/5 dark:border-white/5">
             <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-gray-400">
               <span className="text-lg">🛡️</span>
-              <p>Your data is encrypted and used only to prepare your custom marketing strategy.</p>
+              <p>Your data is encrypted and used only to prepare your custom website strategy and conceptual wireframe.</p>
             </div>
           </div>
         </div>

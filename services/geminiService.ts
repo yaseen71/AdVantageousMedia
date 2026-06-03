@@ -71,9 +71,9 @@ export class GeminiService {
       const ai = new GoogleGenAI({ apiKey: activeKey });
       const response = await ai.models.generateContent({
         model: 'gemini-3.1-pro-preview',
-        contents: `A client has shared the following goals/business info: "${prompt}". Provide a brief, high-impact 3-point AI marketing strategy for them.`,
+        contents: `A client has shared the following web development/business goals: "${prompt}". Provide a brief, high-impact 3-point custom website and tech stack strategy for them.`,
         config: {
-          systemInstruction: 'You are an AI Marketing Specialist at AdVantageousMedia. Keep it professional, visionary, and under 150 words.',
+          systemInstruction: 'You are an expert Website Architect and UX Specialist at AdVantageousMedia. Recommend a high-speed, converting website structure or tech stack with a brief, high-impact 3-point strategy. Keep it professional, visionary, and under 150 words.',
         }
       });
       return response.text || "I couldn't generate a strategy at this moment. Please try again.";
@@ -86,9 +86,9 @@ export class GeminiService {
         const ai = new GoogleGenAI({ apiKey });
         const response = await ai.models.generateContent({
           model: 'gemini-3-flash-preview',
-          contents: `A client has shared the following goals/business info: "${prompt}". Provide a brief, high-impact 3-point AI marketing strategy for them.`,
+          contents: `A client has shared the following web development/business goals: "${prompt}". Provide a brief, high-impact 3-point custom website and tech stack strategy for them.`,
           config: {
-            systemInstruction: 'You are an AI Marketing Specialist at AdVantageousMedia. Keep it professional, visionary, and under 150 words.',
+            systemInstruction: 'You are an expert Website Architect and UX Specialist at AdVantageousMedia. Recommend a high-speed, converting website structure or tech stack with a brief, high-impact 3-point strategy. Keep it professional, visionary, and under 150 words.',
           }
         });
         return response.text || "I couldn't generate a strategy at this moment. Please try again.";
@@ -120,7 +120,7 @@ export class GeminiService {
         model: 'gemini-3.1-pro-preview',
         history: mappedHistory,
         config: {
-          systemInstruction: 'You are the AdVantageousMedia AI assistant. You help potential clients understand how AI can transform their marketing. You are sleek, helpful, and sophisticated.',
+          systemInstruction: 'You are the AdVantageousMedia AI web-building assistant. You help potential clients understand how top-tier custom web design, high-performance static/dynamic web architecture, premium UX design, and secure backend systems can transform their business online. You are sleek, helpful, and sophisticated.',
         },
       });
       const response = await chat.sendMessage({ message: newMessage });
@@ -139,7 +139,7 @@ export class GeminiService {
              parts: [{ text: h.content }]
            })),
            config: {
-             systemInstruction: 'You are the AdVantageousMedia AI assistant. You help potential clients understand how AI can transform their marketing. You are sleek, helpful, and sophisticated.',
+             systemInstruction: 'You are the AdVantageousMedia AI web-building assistant. You help potential clients understand how top-tier custom web design, high-performance static/dynamic web architecture, premium UX design, and secure backend systems can transform their business online. You are sleek, helpful, and sophisticated.',
            },
          });
          const response = await chat.sendMessage({ message: newMessage });

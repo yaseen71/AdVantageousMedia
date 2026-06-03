@@ -67,7 +67,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-[#050505] transition-colors duration-300">
+    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#080E0C] text-slate-900 dark:text-slate-100 transition-colors duration-300">
       <Navbar isDark={isDark} toggleTheme={toggleTheme} onQuoteClick={() => scrollToSection('contact-booking')} />
       
       <main id="top">
@@ -79,31 +79,31 @@ const App: React.FC = () => {
 
         <Portfolio />
 
-        <section id="about" className="py-24 glass mx-6 rounded-[3rem] border border-black/5 dark:border-white/10 my-12 overflow-hidden relative shadow-2xl bg-black">
-          {/* Hexagonal Background Overlay */}
-          <div className="absolute inset-0 opacity-[0.15] pointer-events-none">
-            <div className="h-full w-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHZpZXdCb3g9IjAgMCA0MCA0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNMjAgMEw0MCAxMEw0MCAzMEwyMCA0MEwwIDMwTDAgMTBaIiBmaWxsPSJub25lIiBzdHJva2U9IiMzMTU2ZmUiIHN0cm9rZS13aWR0aD0iMC41Ii8+PC9zdmc+')] bg-repeat"></div>
+        <section id="about" className="py-24 glass mx-6 rounded-[3rem] border border-black/5 dark:border-white/10 my-12 overflow-hidden relative shadow-2xl bg-[#040806]">
+          {/* Subtle Organic Background Overlay */}
+          <div className="absolute inset-0 opacity-[0.25] pointer-events-none">
+            <div className="h-full w-full bg-[radial-gradient(circle_at_30%_30%,_rgba(161,204,165,0.08)_0%,_transparent_55%),_radial-gradient(circle_at_70%_80%,_rgba(212,163,115,0.06)_0%,_transparent_60%)]"></div>
           </div>
           
           <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center text-center lg:text-left relative z-10">
             <div className="order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-600/10 border border-blue-500/20 mb-8 mx-auto lg:mx-0">
-                <span className="w-2 h-2 rounded-full bg-[#48fffa] animate-pulse"></span>
-                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-blue-600 dark:text-[#48fffa]">Neural Infrastructure</span>
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#224231] border border-[#7EA18F]/20 mb-8 mx-auto lg:mx-0">
+                <span className="w-2 h-2 rounded-full bg-[#A1CCA5] animate-pulse"></span>
+                <span className="text-[10px] font-black uppercase tracking-[0.2em] text-[#A1CCA5]">Organic Engineering</span>
               </div>
-              <h2 className="text-5xl md:text-7xl font-bold mb-8 text-white leading-[1.05] tracking-tighter">
-                Meet the <br/>
-                <span className="bg-gradient-to-r from-[#db0072] via-[#3156fe] to-[#48fffa] bg-clip-text text-transparent">Architects of AI.</span>
+              <h2 className="text-5xl md:text-7xl font-bold mb-8 text-white leading-[1.05] tracking-tighter font-serif">
+                Crafting <br/>
+                <span className="text-gradient">Pure Digital Spaces.</span>
               </h2>
-              <p className="text-gray-400 text-lg md:text-xl mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
-                We've spent thousands of GPU hours perfecting the art of synthetic brand growth. Our team blends deep-learning expertise with elite creative strategy to put your brand in a league of its own.
+              <p className="text-[#8EAE9D] text-lg md:text-xl mb-12 max-w-xl mx-auto lg:mx-0 leading-relaxed font-medium">
+                We believe websites are living ecosystems of your brand. Our developers blend pristine custom typing, lightning-fast serverless structure, and organic UX principles to set you miles ahead.
               </p>
               <div className="flex justify-center lg:justify-start">
                 <button 
                   onClick={() => scrollToSection('contact-booking')}
-                  className="group px-12 py-5 bg-[#3156fe] text-white font-extrabold rounded-2xl hover:scale-105 hover:shadow-[0_0_30px_rgba(49,86,254,0.4)] transition-all flex items-center gap-4 active:scale-95 outline-none"
+                  className="group px-12 py-5 bg-[#1B4231] hover:bg-[#25523E] border border-[#7EA18F]/40 text-white font-extrabold rounded-2xl hover:scale-105 hover:shadow-[0_0_30px_rgba(43,104,80,0.3)] transition-all flex items-center gap-4 active:scale-95 outline-none"
                 >
-                  Consult an Expert
+                  Consult a Specialist
                   <span className="text-2xl transition-transform group-hover:translate-x-2">→</span>
                 </button>
               </div>
@@ -111,12 +111,12 @@ const App: React.FC = () => {
 
             <div className="order-1 lg:order-2 relative">
                {/* Glowing back-glow */}
-               <div className="absolute -inset-10 bg-blue-600/20 rounded-full blur-[100px] opacity-50"></div>
+               <div className="absolute -inset-10 bg-[#2D5A27]/25 rounded-full blur-[100px] opacity-50"></div>
                
                <div className="relative glass p-2 rounded-[3.5rem] border border-white/10 overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)]">
                  <img 
-                   src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200" 
-                   alt="Cinematic Mountain Scenery" 
+                   src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&q=80&w=1200" 
+                   alt="Pristine Forest Canopy bathed in Mist" 
                    className="rounded-[3rem] w-full h-[550px] object-cover transition-transform duration-1000 group-hover:scale-110"
                  />
                </div>

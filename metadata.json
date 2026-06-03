@@ -1,7 +1,10 @@
 {
-  "name": "Copy of AdVantageousMedia - AI Marketing Agency",
-  "description": "A high-performance website for a leading AI-driven marketing agency featuring real-time AI consultations and modern UI/UX.",
+  "name": "AdVantageousMedia - Website Creating Business",
+  "description": "A high-performance website for a leading website creating business and bespoke web development agency featuring real-time conceptual website assistance and modern UI/UX.",
   "requestFramePermissions": [
     "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
   ]
 }

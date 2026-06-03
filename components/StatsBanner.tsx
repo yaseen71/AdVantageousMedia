@@ -3,16 +3,15 @@ import React from 'react';
 
 const StatsBanner: React.FC = () => {
   const capabilities = [
-    { label: 'AI AD PRODUCTION', status: 'ACTIVE' },
-    { label: 'NEURAL VIDEO GEN', status: 'LIVE' },
-    { label: 'BRAND-LOCKED ASSETS', status: 'SYNCED' },
-    { label: 'WEEKLY AD CYCLES', status: 'RUNNING' },
+    { label: 'CUSTOM WEB DEV', status: 'ACTIVE' },
+    { label: 'E-COMMERCE SUITES', status: 'LIVE' },
+    { label: 'BESPOKE DESIGN', status: 'LAUNCHED' },
   ];
 
   return (
     <section className="relative w-full overflow-hidden py-10 md:py-14">
       {/* Background with subtle shimmer */}
-      <div className="absolute inset-0 bg-gradient-to-r from-[#3156fe] via-[#db0072] to-[#3156fe] bg-[length:200%_auto] animate-shimmer opacity-95"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-[#12372A] via-[#2D5A27] to-[#12372A] bg-[length:200%_auto] animate-shimmer opacity-95"></div>
       
       {/* Decorative patterns */}
       <div className="absolute inset-0 opacity-10 pointer-events-none">
@@ -20,7 +19,7 @@ const StatsBanner: React.FC = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 md:gap-10 items-center">
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-10 items-center">
           {capabilities.map((item, index) => (
             <div key={index} className="flex flex-col items-center group">
               <div className="flex items-center gap-2 mb-2">
