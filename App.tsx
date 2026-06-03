@@ -11,24 +11,14 @@ import Portfolio from './components/Portfolio';
 import PrivacyPolicy from './components/PrivacyPolicy';
 
 const App: React.FC = () => {
-  const [isDark, setIsDark] = useState(() => {
-    const saved = localStorage.getItem('theme');
-    return saved ? saved === 'dark' : true;
-  });
-
   const [showPrivacy, setShowPrivacy] = useState(false);
 
   useEffect(() => {
     const html = document.documentElement;
-    if (isDark) {
-      html.classList.add('dark');
-      html.classList.remove('light');
-    } else {
-      html.classList.add('light');
-      html.classList.remove('dark');
-    }
-    localStorage.setItem('theme', isDark ? 'dark' : 'light');
-  }, [isDark]);
+    html.classList.add('light');
+    html.classList.remove('dark');
+    localStorage.setItem('theme', 'light');
+  }, []);
 
   useEffect(() => {
     const handleScroll = (e: MouseEvent) => {
@@ -57,8 +47,6 @@ const App: React.FC = () => {
     return () => document.removeEventListener('click', handleScroll);
   }, []);
 
-  const toggleTheme = () => setIsDark(prev => !prev);
-
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -67,8 +55,8 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5] dark:bg-[#080E0C] text-slate-900 dark:text-slate-100 transition-colors duration-300">
-      <Navbar isDark={isDark} toggleTheme={toggleTheme} onQuoteClick={() => scrollToSection('contact-booking')} />
+    <div className="min-h-screen bg-[#FAF8F5] text-slate-900 transition-colors duration-300">
+      <Navbar onQuoteClick={() => scrollToSection('contact-booking')} />
       
       <main id="top">
         <Hero onLaunchClick={() => scrollToSection('contact-booking')} onProofClick={() => scrollToSection('work')} />

@@ -30,32 +30,32 @@ const Footer: React.FC<FooterProps> = ({ onPrivacyClick }) => {
           </div>
 
           <div>
-            <h4 className="text-slate-900 dark:text-white font-black mb-8 text-3xl uppercase tracking-tighter font-serif">Quick Links</h4>
+            <h4 className="text-slate-900 dark:text-white font-bold mb-8 text-lg uppercase tracking-wider font-serif">Quick Links</h4>
             <ul className="text-slate-600 dark:text-gray-300 text-xl font-medium space-y-4">
               <li>
-                <a href="#services" className="hover:text-[#1B4231] dark:hover:text-[#A1CCA5] transition-all flex items-center gap-0 hover:gap-2 group">
-                  <span className="opacity-0 group-hover:opacity-100 transition-all">→</span>
+                <a href="#services" className="relative pl-0 hover:pl-6 text-slate-800 dark:text-gray-200 hover:text-[#1B4231] dark:hover:text-[#A1CCA5] transition-all duration-300 flex items-center group">
+                  <span className="absolute left-0 opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 text-[#1B4231]">→</span>
                   Web Services
                 </a>
               </li>
               <li>
-                <a href="#about" className="hover:text-[#1B4231] dark:hover:text-[#A1CCA5] transition-all flex items-center gap-0 hover:gap-2 group">
-                  <span className="opacity-0 group-hover:opacity-100 transition-all">→</span>
+                <a href="#about" className="relative pl-0 hover:pl-6 text-slate-800 dark:text-gray-200 hover:text-[#1B4231] dark:hover:text-[#A1CCA5] transition-all duration-300 flex items-center group">
+                  <span className="absolute left-0 opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 text-[#1B4231]">→</span>
                   About Us
                 </a>
               </li>
               <li>
-                <a href="#work" className="hover:text-[#1B4231] dark:hover:text-[#A1CCA5] transition-all flex items-center gap-0 hover:gap-2 group">
-                  <span className="opacity-0 group-hover:opacity-100 transition-all">→</span>
+                <a href="#work" className="relative pl-0 hover:pl-6 text-slate-800 dark:text-gray-200 hover:text-[#1B4231] dark:hover:text-[#A1CCA5] transition-all duration-300 flex items-center group">
+                  <span className="absolute left-0 opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 text-[#1B4231]">→</span>
                   Portfolio
                 </a>
               </li>
               <li>
                 <button 
                   onClick={onPrivacyClick}
-                  className="hover:text-[#1B4231] dark:hover:text-[#A1CCA5] transition-all flex items-center gap-0 hover:gap-2 group outline-none text-left"
+                  className="relative pl-0 hover:pl-6 text-slate-800 dark:text-gray-200 hover:text-[#1B4231] dark:hover:text-[#A1CCA5] transition-all duration-300 flex items-center group outline-none text-left w-full"
                 >
-                  <span className="opacity-0 group-hover:opacity-100 transition-all">→</span>
+                  <span className="absolute left-0 opacity-0 -translate-x-3 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300 text-[#1B4231]">→</span>
                   Privacy Policy
                 </button>
               </li>
