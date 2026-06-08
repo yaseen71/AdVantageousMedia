@@ -90,7 +90,7 @@ const Portfolio: React.FC = () => {
             {/* Zero Plug-in Vulnerabilities Card */}
             <div className="relative group overflow-hidden rounded-[2rem] bg-emerald-950/20 dark:bg-black p-1">
               <div className="absolute inset-0 bg-emerald-600/10 group-hover:bg-emerald-600/20 transition-colors"></div>
-              <div className="relative h-full bg-[#08120F] rounded-[1.9rem] p-10 border border-emerald-800/30 group-hover:border-emerald-600 transition-all shadow-[0_0_30px_-10px_rgba(16,30,22,0.4)]">
+              <div className="relative h-full bg-[#08120F] rounded-[1.9rem] p-6 md:p-10 border border-emerald-800/30 group-hover:border-emerald-600 transition-all shadow-[0_0_30px_-10px_rgba(16,30,22,0.4)]">
                 <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3 font-serif">
                   Zero Plug-in Vulnerabilities
                 </h4>
@@ -103,7 +103,7 @@ const Portfolio: React.FC = () => {
             {/* Unbeatable Performance & Speed Card */}
             <div className="relative group overflow-hidden rounded-[2rem] bg-amber-950/20 dark:bg-black p-1">
               <div className="absolute inset-0 bg-amber-600/10 group-hover:bg-amber-600/20 transition-colors"></div>
-              <div className="relative h-full bg-[#12110D] rounded-[1.9rem] p-10 border border-amber-800/30 group-hover:border-amber-600 transition-all shadow-[0_0_30px_-10px_rgba(40,32,15,0.4)]">
+              <div className="relative h-full bg-[#12110D] rounded-[1.9rem] p-6 md:p-10 border border-amber-800/30 group-hover:border-amber-600 transition-all shadow-[0_0_30px_-10px_rgba(40,32,15,0.4)]">
                 <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3 font-serif">
                   Unbeatable Load Speeds
                 </h4>
@@ -116,7 +116,7 @@ const Portfolio: React.FC = () => {
             {/* Perfect Brand Customization Card */}
             <div className="relative group overflow-hidden rounded-[2rem] bg-teal-950/20 dark:bg-black p-1">
               <div className="absolute inset-0 bg-[#7EA18F]/10 group-hover:bg-[#7EA18F]/20 transition-colors"></div>
-              <div className="relative h-full bg-[#0C1411] rounded-[1.9rem] p-10 border border-[#7EA18F]/30 group-hover:border-[#7EA18F] transition-all shadow-[0_0_30px_-10px_rgba(20,40,30,0.4)]">
+              <div className="relative h-full bg-[#0C1411] rounded-[1.9rem] p-6 md:p-10 border border-[#7EA18F]/30 group-hover:border-[#7EA18F] transition-all shadow-[0_0_30px_-10px_rgba(20,40,30,0.4)]">
                 <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3 font-serif">
                   Tailored Layout Customization
                 </h4>
@@ -129,7 +129,7 @@ const Portfolio: React.FC = () => {
             {/* Agile Development Cycles Card */}
             <div className="relative group overflow-hidden rounded-[2rem] bg-stone-900/40 dark:bg-black p-1">
               <div className="absolute inset-0 bg-[#A1CCA5]/10 group-hover:bg-[#A1CCA5]/25 transition-colors"></div>
-              <div className="relative h-full bg-[#0B120F] rounded-[1.9rem] p-10 border border-[#A1CCA5]/20 group-hover:border-[#A1CCA5] transition-all shadow-[0_0_30px_-10px_rgba(161,204,165,0.15)]">
+              <div className="relative h-full bg-[#0B120F] rounded-[1.9rem] p-6 md:p-10 border border-[#A1CCA5]/20 group-hover:border-[#A1CCA5] transition-all shadow-[0_0_30px_-10px_rgba(161,204,165,0.15)]">
                 <h4 className="text-2xl font-bold text-white mb-4 flex items-center gap-3 font-serif">
                   Agile Delivery Cycles
                 </h4>

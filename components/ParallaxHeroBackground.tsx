@@ -7,6 +7,12 @@ const ParallaxHeroBackground: React.FC = () => {
   const particlesLayerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Completely disable parallax calculations on mobile devices to preserve high FPS and smooth scrolling
+    const isMobileDevice = window.matchMedia('(max-width: 768px)').matches;
+    if (isMobileDevice) {
+      return;
+    }
+
     const bgLayer = bgLayerRef.current;
     const meshLayer = meshLayerRef.current;
     const blobsLayer = blobsLayerRef.current;

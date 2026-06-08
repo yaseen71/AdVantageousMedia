@@ -18,7 +18,7 @@ const Services: React.FC<ServicesProps> = ({ onCustomClick }) => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SERVICES.map((service) => (
-            <div key={service.id} className="group glass p-10 rounded-3xl border border-black/5 dark:border-white/10 hover:border-[#1B4231]/40 dark:hover:border-[#A1CCA5]/30 transition-all hover:-translate-y-2">
+            <div key={service.id} className="group glass p-6 md:p-10 rounded-3xl border border-black/5 dark:border-white/10 hover:border-[#1B4231]/40 dark:hover:border-[#A1CCA5]/30 transition-all hover:-translate-y-2">
               <div className="text-4xl mb-6 bg-slate-200/50 dark:bg-white/5 w-16 h-16 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-transform">
                 {service.icon}
               </div>
@@ -29,7 +29,7 @@ const Services: React.FC<ServicesProps> = ({ onCustomClick }) => {
             </div>
           ))}
           
-          <div className="bg-gradient-main p-10 rounded-3xl flex flex-col justify-center items-center text-center shadow-2xl shadow-emerald-950/20">
+          <div className="bg-gradient-main p-6 md:p-10 rounded-3xl flex flex-col justify-center items-center text-center shadow-2xl shadow-emerald-950/20">
             <h3 className="text-2xl font-bold mb-4 text-white font-serif">Custom Web Platforms</h3>
             <p className="mb-8 text-emerald-100/90 max-w-xs">Need a tailored web application, bespoke database integration, or a unique interactive tool?</p>
             <button 
