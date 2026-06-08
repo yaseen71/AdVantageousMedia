@@ -86,8 +86,8 @@ const ParallaxHeroBackground: React.FC = () => {
         <div className="absolute inset-x-0 top-0 h-40 bg-gradient-to-b from-[#FAF8F5] to-transparent dark:from-[#080E0C]" />
       </div>
 
-      {/* 2. Abstract Organic Tech Mesh Network Layer */}
-      <div ref={meshLayerRef} className="absolute inset-0 opacity-15 dark:opacity-[0.25]">
+      {/* 2. Abstract Organic Tech Mesh Network Layer (Desktop Only) */}
+      <div ref={meshLayerRef} className="hidden md:block absolute inset-0 opacity-15 dark:opacity-[0.25]">
         {/* Elegant structural coordinates network */}
         <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -129,8 +129,8 @@ const ParallaxHeroBackground: React.FC = () => {
         </svg>
       </div>
 
-      {/* 3. High-Depth Blurred Glowing Auras (Blobs) */}
-      <div ref={blobsLayerRef} className="absolute inset-0">
+      {/* 3. High-Depth Blurred Glowing Auras (Blobs - Desktop Only) */}
+      <div ref={blobsLayerRef} className="hidden md:block absolute inset-0">
         {/* Emerald Blob */}
         <div className="absolute top-1/4 -left-20 w-[450px] h-[450px] bg-emerald-800/10 dark:bg-emerald-600/15 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[110px] animate-blob" />
         
@@ -141,8 +141,8 @@ const ParallaxHeroBackground: React.FC = () => {
         <div className="absolute -bottom-10 left-1/2 -translate-x-1/2 w-[600px] h-[600px] bg-emerald-600/5 dark:bg-emerald-500/12 rounded-full mix-blend-multiply dark:mix-blend-screen filter blur-[130px] animate-blob animation-delay-4000" />
       </div>
 
-      {/* 4. Elegant 3D Interactive Floating Particles & Digital Foliage */}
-      <div ref={particlesLayerRef} className="absolute inset-0">
+      {/* 4. Elegant 3D Interactive Floating Particles & Digital Foliage (Desktop Only) */}
+      <div ref={particlesLayerRef} className="hidden md:block absolute inset-0">
         {/* Particle / Leaf 1 */}
         <div className="absolute top-[28%] left-[12%] animate-float">
           <svg className="w-5 h-5 text-emerald-800/25 dark:text-[#A1CCA5]/30" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
