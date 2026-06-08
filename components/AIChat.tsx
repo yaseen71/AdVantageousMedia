@@ -77,7 +77,7 @@ const AIChat: React.FC = () => {
 
       {/* Chat Window */}
       <div 
-        className={`fixed bottom-28 left-8 z-[110] w-[calc(100%-4rem)] md:w-[400px] h-[550px] glass rounded-[2.5rem] border border-black/10 dark:border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden transition-all duration-500 transform ${
+        className={`fixed bottom-28 left-4 right-4 md:left-8 md:right-auto z-[110] w-[calc(100%-2rem)] md:w-[400px] h-[550px] glass rounded-[2.5rem] border border-black/10 dark:border-white/10 shadow-[0_32px_64px_-16px_rgba(0,0,0,0.5)] flex flex-col overflow-hidden transition-all duration-500 transform ${
           isOpen ? 'translate-y-0 opacity-100 scale-100' : 'translate-y-10 opacity-0 scale-90 pointer-events-none'
         }`}
       >

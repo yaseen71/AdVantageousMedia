@@ -103,9 +103,10 @@ const App: React.FC = () => {
                
                <div className="relative glass p-2 rounded-[3.5rem] border border-white/10 overflow-hidden shadow-[0_0_80px_rgba(0,0,0,0.5)]">
                  <img 
-                   src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&q=80&w=1200" 
+                   src="https://images.unsplash.com/photo-1513836279014-a89f7a76ae86?auto=format&fit=crop&q=65&w=800" 
                    alt="Pristine Forest Canopy bathed in Mist" 
                    className="rounded-[3rem] w-full h-[550px] object-cover transition-transform duration-1000 group-hover:scale-110"
+                   loading="lazy"
                  />
                </div>
             </div>

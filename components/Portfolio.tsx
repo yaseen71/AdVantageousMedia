@@ -28,9 +28,10 @@ const Portfolio: React.FC = () => {
                 {/* Traditional Side */}
                 <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden group/img">
                   <img 
-                    src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&q=80&w=1200" 
+                    src="https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&q=65&w=800" 
                     alt="Legacy Bloated Template" 
                     className="w-full h-full object-cover grayscale transition-transform duration-1000 group-hover/img:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-black/60"></div>
                   <div className="absolute bottom-10 left-10">
@@ -47,9 +48,10 @@ const Portfolio: React.FC = () => {
                 {/* Our Side */}
                 <div className="relative aspect-[4/5] md:aspect-auto overflow-hidden group/img border-t md:border-t-0 md:border-l-2 border-[#A1CCA5]">
                   <img 
-                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=80&w=1200" 
+                    src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&q=65&w=800" 
                     alt="Bespoke High Performance Stack with Sunbeams" 
                     className="w-full h-full object-cover transition-transform duration-1000 group-hover/img:scale-105"
+                    loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-emerald-950/60 via-transparent to-transparent"></div>
                   <div className="absolute bottom-10 left-10">

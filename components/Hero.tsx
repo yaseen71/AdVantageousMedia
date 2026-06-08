@@ -21,7 +21,7 @@ const Hero: React.FC<HeroProps> = ({ onLaunchClick, onProofClick }) => {
             </span>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-extrabold leading-[1.15] tracking-tighter mb-8 text-slate-900 dark:text-white opacity-0 animate-fade-in animation-delay-100 font-serif">
+          <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-8xl font-extrabold leading-[1.15] tracking-tighter mb-8 text-slate-900 dark:text-white opacity-0 animate-fade-in animation-delay-100 font-serif">
             Secure Your <br />
             <span className="text-gradient text-glow-blue inline-block px-4 pb-2 italic">AdVantage.</span>
           </h1>
