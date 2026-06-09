@@ -110,12 +110,21 @@ a, button, select, input, textarea {
     transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease, opacity 0.2s ease;
 }
 
-/* Mobile Performance Engine: Disable heavy keyframe animations on low-power devices */
+/* Mobile Performance Engine: Disable heavy keyframe animations on low-power devices while ensuring fade-ins render instantly */
 @media (max-width: 767px) {
+    /* Instantly render fade-in items to avoid blank states */
+    .opacity-0.animate-fade-in {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+    }
+
     .animate-blob, 
     .animate-float, 
-    .animate-shimmer, 
-    [class*="animate-"] {
+    .animate-shimmer,
+    .animate-soft-pulse,
+    .animate-pulse,
+    .animate-ping {
         animation: none !important;
         transform: none !important;
     }

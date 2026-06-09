@@ -83,7 +83,7 @@ const Navbar: React.FC<NavbarProps> = ({ onQuoteClick }) => {
 
       {/* Elegant Slide-down Mobile Navigation Overlay */}
       <div 
-        className={`fixed inset-0 z-40 bg-white/95 backdrop-blur-xl flex flex-col justify-center px-8 transition-all duration-500 md:hidden ${
+        className={`fixed inset-0 z-40 bg-white/95 flex flex-col justify-center px-8 transition-all duration-500 md:hidden ${
           isMobileOpen 
             ? 'opacity-100 translate-y-0 pointer-events-auto' 
             : 'opacity-0 -translate-y-10 pointer-events-none'

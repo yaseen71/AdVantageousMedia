@@ -72,12 +72,12 @@ const ParallaxHeroBackground: React.FC = () => {
       >
         {/* Light Theme Background Forest */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.06] dark:opacity-0 transition-opacity duration-500"
+          className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat opacity-[0.06] dark:opacity-0 transition-opacity duration-500"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&q=60&w=900')" }}
         />
         {/* Dark Theme Background Forest */}
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 dark:opacity-[0.14] transition-opacity duration-500"
+          className="hidden md:block absolute inset-0 bg-cover bg-center bg-no-repeat opacity-0 dark:opacity-[0.14] transition-opacity duration-500"
           style={{ backgroundImage: "url('https://images.unsplash.com/photo-1542273917363-3b1817f69a2d?auto=format&fit=crop&q=60&w=900')" }}
         />
         
